@@ -1,16 +1,6 @@
+Options -Indexes
 RewriteEngine On
+RewriteBase /S3/examenS3/Takalo/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
-```
-
-**2. Vérifie que `mod_rewrite` est activé dans XAMPP**
-
-Ouvre `C:\xampp\apache\conf\httpd.conf` et cherche cette ligne, assure-toi qu'elle n'est **pas** commentée (pas de `#` devant) :
-```
-LoadModule rewrite_module modules/mod_rewrite.so
-```
-
-Et cherche le bloc `<Directory "C:/xampp/htdocs">`, change `AllowOverride None` en :
-```
-AllowOverride All
