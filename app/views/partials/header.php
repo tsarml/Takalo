@@ -19,6 +19,7 @@
         <div class="navbar-nav ms-auto">
             <a class="nav-link" href="/objects">Tous les objets</a>
             <a class="nav-link" href="/objects/my">Mes objets</a>
+            <a class="nav-link" href="/echanges">Propositions d'échange</a>
             <!-- plus tard : lien profil, déconnexion... -->
         </div>
     </div>

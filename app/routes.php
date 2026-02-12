@@ -11,3 +11,10 @@ Flight::route('GET /objects/my', ['ObjectController', 'listMyObjects']);
 // Plus tard :
 // Flight::route('GET /login',  ...);
 // Flight::route('POST /exchange/propose', ...);
+
+// Propositions d'échange
+Flight::route('GET /echanges', ['EchangeController', 'listPropositions']);
+
+// Actions sur une proposition
+// Flight::route('POST /echanges/@id/accepter', ['EchangeController', 'accepter']);
+// Flight::route('POST /echanges/@id/rejeter',  ['EchangeController', 'rejeter']);

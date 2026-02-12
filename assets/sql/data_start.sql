@@ -28,16 +28,18 @@ CREATE TABLE objects (
 );
 
 -- Exchange Proposals table: stores exchange requests between users
+
 CREATE TABLE echanges (
-    id_echange SERIAL PRIMARY KEY,
-    id_proposer INTEGER REFERENCES users(id_object) ON DELETE CASCADE,
-    id_proposee INTEGER REFERENCES users(id_object) ON DELETE CASCADE,
-    id_object_proposer INTEGER REFERENCES objects(id_object) ON DELETE CASCADE,
-    id_object_proposee INTEGER REFERENCES objects(id_object) ON DELETE CASCADE,
-    status VARCHAR(20) DEFAULT 'en cours' CHECK (status IN ('en cours', 'accepter', 'rejecter')),  -- Enum-like status
-    proposal_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    response_date TIMESTAMP,
-    UNIQUE (id_object_proposer, id_object_proposee)  -- Prevent duplicate proposals for the same pair
+    id_echange      SERIAL PRIMARY KEY,
+    id_proposer     INTEGER REFERENCES users(id_user) ON DELETE CASCADE,
+    id_proposee     INTEGER REFERENCES users(id_user) ON DELETE CASCADE,
+    id_object_proposer  INTEGER REFERENCES objects(id_object) ON DELETE CASCADE,
+    id_object_proposee  INTEGER REFERENCES objects(id_object) ON DELETE CASCADE,
+    status          VARCHAR(20) DEFAULT 'en cours' 
+     CHECK (status IN ('en cours', 'accepter', 'rejecter')),
+    proposal_date   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    response_date   TIMESTAMP NULL DEFAULT NULL,
+    UNIQUE (id_object_proposer, id_object_proposee)
 );
 
 -- Indexes for performance 
@@ -61,7 +63,7 @@ INSERT INTO users (email, pwd) VALUES
 ('user2', 'user2@example.com');
 
 -- objects
-INSERT INTO objects (nom, description, category_id, id_user, image_url) VALUES
+INSERT INTO objects (nom, description, id_categorie, id_user, image_url) VALUES
 ('T-Shirt', 'Red cotton t-shirt, size M', 1, 1, 'https://example.com/tshirt.jpg'),
 ('Novel Book', 'Fantasy novel by famous author', 2, 2, 'https://example.com/book.jpg'),
 ('Action DVD', 'Blockbuster action movie', 3, 1, 'https://example.com/dvd.jpg');
