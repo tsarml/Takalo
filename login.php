@@ -13,7 +13,7 @@
     <p>Email : <input type="text" name="email"></p>
     <p>Mot de passe : <input type="text"></p>
 
-    <input type="button" value="submit">
+    <input type="button" value="connexion">
 </form>
 </body>
 </html>
