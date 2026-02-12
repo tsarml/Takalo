@@ -1,0 +1,12 @@
+- login :
+formulaire avec email , mot de passe 
+validation (nombre de caractères,validation de caractères )
+* base de donnée avec des utilisateurs (3 pour test )
+* auto-login
+
+- page liste des objets des autres /de soi :
+ * tableau d'objet (nom, id , photo ,état , catégorie, description, prix estimatif )
+ * bouton pour voir la liste des objets des autres 
+ * pop up proposition de liste d'échange ( je choisis un de ses objets ,il y a ma liste qui apparaît et je propose l'échange avec l'un de mes objets )
+ * backend avec comparaison des prix 
+ * boutons échange
