@@ -1,15 +1,13 @@
 <?php
+// app/routes.php
 
-Flight::route('GET /objects', ['ObjectController', 'index']);
+// Page d'accueil = liste des objets (solution la plus simple pour commencer)
+Flight::route('GET /', ['ObjectController', 'listAll']);
 
-Flight::route('GET /objects/add',    ['ObjectController', 'addForm']);
-Flight::route('POST /objects/add',   ['ObjectController', 'addSave']);
+// Les autres routes
+Flight::route('GET /objects',    ['ObjectController', 'listAll']);
+Flight::route('GET /objects/my', ['ObjectController', 'listMyObjects']);
 
-Flight::route('GET /objects/edit/@id',  ['ObjectController', 'editForm']);
-Flight::route('POST /objects/edit/@id', ['ObjectController', 'editSave']);
-
-Flight::route('GET /objects/delete/@id', ['ObjectController', 'delete']);
-
-Flight::route('POST /exchanges/propose', ['ObjectController', 'propose']);
-
-Flight::route('POST /exchanges/accept',  ['ObjectController', 'accept']);
+// Plus tard :
+// Flight::route('GET /login',  ...);
+// Flight::route('POST /exchange/propose', ...);

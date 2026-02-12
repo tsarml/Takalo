@@ -3,37 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takalo-Takalo <?= isset($pageTitle) ? '— ' . htmlspecialchars($pageTitle) : '' ?></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Takalo-takalo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .object-card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+        .object-card img { height: 180px; object-fit: cover; width: 100%; }
+        .price-estimated { font-weight: bold; color: #2c7be5; }
+    </style>
 </head>
 <body>
 
-<header class="site-header">
-    <div class="header-inner">
-        <a href="/" class="logo">
-            <span class="logo-icon">⇄</span>
-            <span class="logo-text">Takalo<span class="logo-accent">.</span>Takalo</span>
-        </a>
-        <nav class="header-nav">
-            <a href="/objects" class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], '/objects') !== false) ? 'active' : '' ?>">
-                Objets
-            </a>
-            <a href="/exchanges" class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], '/exchanges') !== false) ? 'active' : '' ?>">
-                Mes échanges
-            </a>
-        </nav>
-        <div class="header-user">
-            <?php if (isset($_SESSION['user'])): ?>
-                <span class="user-name"><?= htmlspecialchars($_SESSION['user']['name']) ?></span>
-                <a href="/logout" class="btn-ghost">Déconnexion</a>
-            <?php else: ?>
-                <a href="/login" class="btn-ghost">Connexion</a>
-                <a href="/register" class="btn-primary">S'inscrire</a>
-            <?php endif; ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/">Takalo-takalo</a>
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="/objects">Tous les objets</a>
+            <a class="nav-link" href="/objects/my">Mes objets</a>
+            <!-- plus tard : lien profil, déconnexion... -->
         </div>
     </div>
-</header>
+</nav>
 
-<main class="site-main">
+<main class="container">
